@@ -14,6 +14,13 @@ export default defineConfig({
     port: 1420,
     strictPort: true,
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/style.scss";`
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
