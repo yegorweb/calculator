@@ -1,7 +1,7 @@
 # <p align="center">:1234: **Калькулятор** (Calculator)</p>
 ## **Состояние проекта**:&nbsp; :x: Не сделан &nbsp;&nbsp;![5%](https://progress-bar.dev/5)
 ```
-<p align="left">В проекте используются `[Tauri](https://tauri.app/)`, `Vite`, `Vue`, `мозги` (самое важное)</p>
+В проекте используются `[Tauri](https://tauri.app/)`, `Vite`, `Vue`, `мозги` (самое важное)
 ```
 <details>
 <summary>Show translate</summary>
