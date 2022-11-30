@@ -1,12 +1,14 @@
 <template>
     <div class="cont">
-        <div class="past-expression" id="past-expression">2+2</div>
-        <div class="current-expression" id="current-expression">4</div>
+        <div class="past-expression" id="past-expression">{{ calculateStore.past_expression }}</div>
+        <div class="current-expression" id="current-expression">{{ calculateStore.current_expression }}</div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { useCalculateStore } from "../stores/calculateStore.js";
 
+var calculateStore = useCalculateStore()
 </script>
 
 <style lang="scss" scoped>
@@ -17,6 +19,7 @@
     height: 100%;
     padding: rem(13) rem(26);
     box-sizing: border-box;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
     gap: rem(10);

@@ -1,0 +1,48 @@
+<template>
+    <div class="item" :style="{color: props.color, background: props.background}">
+        {{ props.digit }}
+    </div>
+</template>
+
+<script setup>
+var props = defineProps({
+    digit: {
+        type: String,
+        required: true
+    },
+    color: {
+        type: String,
+        required: false,
+        default: '#2C2C2C'
+    },
+    background: {
+        type: String,
+        required: false,
+        default: '#000000'
+    }
+})
+</script>
+
+<style lang="scss" scoped>
+.item {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    border-radius: rem(6);
+    font-family: 'Russo One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: rem(36);
+
+    &:hover {
+        filter: brightness(0.95);
+    }
+}
+</style>
