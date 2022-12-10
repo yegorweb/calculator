@@ -1,15 +1,11 @@
 <template>
     <div class="item" :style="{color: props.color, background: props.background}">
-        {{ props.digit }}
+        <slot />
     </div>
 </template>
 
 <script setup>
 var props = defineProps({
-    digit: {
-        type: String,
-        required: true
-    },
     color: {
         type: String,
         required: false,
@@ -40,6 +36,14 @@ var props = defineProps({
     font-style: normal;
     font-weight: 400;
     font-size: rem(36);
+
+    & > * {
+        line-height: 1;
+        font-family: 'Russo One';
+        font-style: normal;
+        font-weight: 400;
+        font-size: rem(36);    
+    }
 
     &:hover {
         filter: brightness(0.95);

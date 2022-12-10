@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCalculateStore } from "../stores/calculateStore.js";
+import { useCalculateStore } from "../stores/calculateStore";
 
 var calculateStore = useCalculateStore()
 </script>

@@ -14,6 +14,6 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/stores/calculateStore.js", "src/stores/calculateStore.js"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/stores/calculateStore.ts", "src/stores/calculateStore.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
