@@ -1,29 +1,34 @@
 # <p align="center">:1234: **Калькулятор** (Calculator)</p>
-## **Состояние проекта**:&nbsp; :x: Не сделан &nbsp;&nbsp;![5%](https://progress-bar.dev/5)
+## **Состояние проекта**:&nbsp; :x: Не сделан &nbsp;&nbsp;![60%](https://progress-bar.dev/60)
+
 &nbsp;
 В проекте используются [Tauri](https://tauri.app), Vite, Vue, `мозг` (самое важное)
+
 &nbsp;
 <details>
 <summary>Show translate</summary>
 The project uses Tauri, Vite, Vue, brain (most important)
 </details>
 &nbsp;
-&nbsp;
 
+## Copy project:
+```
+    git clone https://github.com/yegorweb/calculator.git
+```
 ## If you use Yarn:
-### Install dependencies first
+#### Install dependencies first
 ```
     yarn add
 ```
-### Run in window:
+#### Run in window:
 ```
     yarn tauri dev
 ```
-### Run in browser:
+#### Run in browser:
 ```
     yarn dev
 ```
-### Build project:
+#### Build project:
 ```
     yarn tauri build
 ```
@@ -31,19 +36,19 @@ The project uses Tauri, Vite, Vue, brain (most important)
 &nbsp;
 
 ## If you use npm:
-### Install dependencies first
+#### Install dependencies first
 ```
     npm install
 ```
-### Run in window:
+#### Run in window:
 ```
     npm run tauri dev
 ```
-### Run in browser:
+#### Run in browser:
 ```
     npm run dev
 ```
-### Build project:
+#### Build project:
 ```
     npm run tauri build
 ```
