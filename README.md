@@ -1,8 +1,6 @@
-&nbsp;
 
 # <p align="center">:1234: **Калькулятор** (Calculator)</p>
 ## **Состояние проекта**:&nbsp; :x: Не сделан &nbsp;&nbsp;![60%](https://progress-bar.dev/60)
-&nbsp;
 
 В проекте используются [Tauri](https://tauri.app), Vite, Vue, `мозг` (самое важное)
 
@@ -10,6 +8,7 @@
 <summary>Show translate</summary>
 The project uses Tauri, Vite, Vue, brain (most important)
 </details>
+&nbsp;
 
 ----------
 ## Copy project:

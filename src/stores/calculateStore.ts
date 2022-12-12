@@ -45,7 +45,7 @@ export const useCalculateStore = defineStore('calculateStore', () => {
      * @param symbol {string} Символ
     */
     function isMathAction(symbol: string): boolean {
-        return /[^\d\.\d]/.test(symbol)
+        return /[+|-|×|÷]/.test(symbol)
     }
 
 
@@ -82,10 +82,11 @@ export const useCalculateStore = defineStore('calculateStore', () => {
         }
         
         // Не дает поставить математическое действие, если в конце нет числа или скобок
-        if (isMathAction(last_symbol_in_expression) 
-            && isMathAction(entered_symbol) 
+        if (!isNumber(last_symbol_in_expression) 
+            && !isNumber(entered_symbol) 
             && last_symbol_in_expression != '(' 
-            && last_symbol_in_expression != ')') return
+            && last_symbol_in_expression != ')'
+        ) return
         
         // Не дает поставить точку, если точка уже поставлена
         if (last_number_in_expression.split('')
@@ -94,8 +95,6 @@ export const useCalculateStore = defineStore('calculateStore', () => {
         // Не дает поставить еще один ноль
         if (last_number_in_expression == '0' && entered_symbol == '0') return
 
-
-        // Далее идут исключения, для которых ставится символ
 
         // Очищаем выражение и ставим символ, если до этого поучили ошибку
         if (got_error) {
@@ -108,13 +107,27 @@ export const useCalculateStore = defineStore('calculateStore', () => {
     }
 
 
+    /** Убирает ненужные математические символы в конце выражения */
+    function remove_remaining_math_symbols(): void {
+        while (isMathAction(get_last_symbol_in_expression())) {
+            removeSymbol()
+        }
+    }
+
+
+    /** Добавляет оставшиеся незакрытые скобки */
+    function add_remaining_brackets(): void {
+        current_expression.value += ')'.repeat(amount_of_remaining_brackets)
+    }
+
+
     /** Добавляет скобку */
     function add_bracket(): void {
 
         let last_symbol_in_expression = get_last_symbol_in_expression()
 
         // Проверяем является ли последний символ математическим выражением и не является ли закрывающейся скобкой
-        if (isMathAction(last_symbol_in_expression) && last_symbol_in_expression != ')') {
+        if (!isNumber(last_symbol_in_expression) && last_symbol_in_expression != ')') {
             // Добавляем к количеству незакрытых скобок
             amount_of_remaining_brackets++
             
@@ -158,6 +171,12 @@ export const useCalculateStore = defineStore('calculateStore', () => {
     /** Считает выражение */
     function calculate(): void {
 
+        // Убираем ненужные математические символы в конце выражения
+        remove_remaining_math_symbols()
+
+        // Добавляем оставшиеся незакрытые скобки
+        add_remaining_brackets()
+
         // Меняем прошлое выражение
         past_expression.value = current_expression.value
 
@@ -175,7 +194,7 @@ export const useCalculateStore = defineStore('calculateStore', () => {
         // Словили ошибку
         catch(e) {
             console.error(e)
-            current_expression.value = 'Error'
+            current_expression.value = 'Ошибка'
             got_error = true
         }
     }

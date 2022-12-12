@@ -13,11 +13,11 @@ var calculateStore = useCalculateStore()
 
 <style lang="scss" scoped>
 .cont {
+    @include adaptive-value(padding, rem(13) rem(26), rem(13) rem(26), rem(13) rem(26), rem(13) rem(26), rem(10) rem(16));
     background: #EDEDED;
     border-radius: rem(6);
     width: 100%;
     height: 100%;
-    padding: rem(13) rem(26);
     box-sizing: border-box;
     justify-content: space-between;
     display: flex;
