@@ -14,7 +14,7 @@ var props = defineProps({
     background: {
         type: String,
         required: false,
-        default: '#000000'
+        default: '#B7B7B7'
     }
 })
 </script>
@@ -37,16 +37,18 @@ var props = defineProps({
     font-weight: 400;
     font-size: rem(36);
 
-    & > * {
-        line-height: 1;
+    & > sup {
         font-family: 'Russo One';
         font-style: normal;
         font-weight: 400;
-        font-size: rem(36);    
+        font-size: rem(20);
     }
 
     &:hover {
-        filter: brightness(0.95);
+        filter: brightness(0.97);
+    }
+    &:active {
+        filter: brightness(0.9);
     }
 }
 </style>
