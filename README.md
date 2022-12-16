@@ -17,6 +17,7 @@
 The project uses Tauri, Vite, Vue, brain (most important)
 </details>
 &nbsp;
+
 ----------
 ## Copy project:
 ```
