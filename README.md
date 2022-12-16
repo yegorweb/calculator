@@ -1,4 +1,3 @@
-&nbsp;
 # <p align="center">:1234: **Калькулятор** (Calculator)</p>
 [![Tauri](https://img.shields.io/badge/tauri-%2324C8DB.svg?style=for-the-badge&logo=tauri&logoColor=%23FFFFFF)](https://tauri.app)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
@@ -18,7 +17,6 @@
 The project uses Tauri, Vite, Vue, brain (most important)
 </details>
 &nbsp;
-
 ----------
 ## Copy project:
 ```

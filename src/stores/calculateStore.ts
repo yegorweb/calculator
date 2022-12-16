@@ -68,6 +68,27 @@ export const useCalculateStore = defineStore('calculateStore', () => {
     }
 
 
+    /** Параметры для функции добавления строки вокруг блока */
+    interface ParametersForAddingSymbolsAroundObject {
+        decorating_string: string;
+        computable_string: string;
+        decorating_symbol_locates_in_left?: boolean;
+        decorating_symbol_locates_in_right?: boolean;
+        add_computable_string_to_left?: boolean;
+        add_computable_string_to_right?: boolean;
+    }
+console.log(eval('9*Math.sqrt(3+4)'))
+
+    /** Функция для добавления строки вокруг блока
+     * @example current_expression.value = '9*√(3+4)'
+     * add_string_around_block({decorating_string = '√', computable_string = 'Math.sqrt', decorating_symbol_locates_in_left = true, add_computable_string_to_left = true})
+     * // current_expression.value = '9*Math.sqrt(3+4)'
+    */
+    function add_string_around_block(parameters: ParametersForAddingSymbolsAroundObject): void {
+        
+    }
+
+
     /** Добавляет символ */
     function add_symbol(entered_symbol: string): void {
 
