@@ -1,7 +1,7 @@
 <template>
     <div class="cont">
         <div class="past-expression" id="past-expression">{{ calculateStore.past_expression }}</div>
-        <div class="current-expression" id="current-expression">{{ calculateStore.current_expression }}</div>
+        <input class="current-expression" id="current-expression" autofocus @blur="focus()" :value="calculateStore.current_expression" />
     </div>
 </template>
 
@@ -9,6 +9,10 @@
 import { useCalculateStore } from "../stores/calculateStore";
 
 var calculateStore = useCalculateStore()
+
+function focus(): void {
+    document.getElementById('current-expression')?.focus()
+}
 </script>
 
 <style lang="scss" scoped>
@@ -39,5 +43,11 @@ var calculateStore = useCalculateStore()
     font-size: rem(60);
     text-align: right;
     color: #000000;
+    background: rgba($color: #000000, $alpha: 0);
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
 }
 </style>

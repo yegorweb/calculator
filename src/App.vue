@@ -1,11 +1,12 @@
 <script setup lang="ts">
-//import { appWindow, LogicalSize, PhysicalSize } from "@tauri-apps/api/window";
 import TopSection from '@/components/TopSection.vue'
 import ButtonsSection from '@/components/ButtonsSection.vue'
 
-//appWindow.setTitle('Калькулятор')
-//appWindow.setMinSize(new PhysicalSize(320, 500))
-//appWindow.setSize(new LogicalSize(600, 500))
+// Убрать комменты, если для декстопа 
+import { appWindow, LogicalSize, PhysicalSize } from "@tauri-apps/api/window";
+appWindow.setTitle('Калькулятор')
+appWindow.setMinSize(new PhysicalSize(320, 500))
+appWindow.setSize(new LogicalSize(600, 500))
 </script>
 
 <!-- 

@@ -21,7 +21,10 @@ export const useCalculateStore = defineStore('calculateStore', () => {
     let got_error: boolean = false
 
     /** Количество незакрытых скобок */
-    let amount_of_remaining_brackets = 0
+    let amount_of_remaining_brackets: number = 0
+
+    /** Поле ввода выражения */
+    let current_expression_input = document.getElementById('current-expression')
 
     /******************* End of variables ********************/
 
@@ -68,6 +71,11 @@ export const useCalculateStore = defineStore('calculateStore', () => {
     }
 
 
+    /** Возвращает индекс символа перед курсором */
+    function get_index_of_symbol_before_cursor(): void {
+    }
+
+
     /** Параметры для функции добавления строки вокруг блока */
     interface ParametersForAddingSymbolsAroundObject {
         decorating_string: string;
@@ -77,8 +85,8 @@ export const useCalculateStore = defineStore('calculateStore', () => {
         add_computable_string_to_left?: boolean;
         add_computable_string_to_right?: boolean;
     }
-console.log(eval('9*Math.sqrt(3+4)'))
 
+    
     /** Функция для добавления строки вокруг блока
      * @example current_expression.value = '9*√(3+4)'
      * add_string_around_block({decorating_string = '√', computable_string = 'Math.sqrt', decorating_symbol_locates_in_left = true, add_computable_string_to_left = true})
@@ -95,8 +103,9 @@ console.log(eval('9*Math.sqrt(3+4)'))
         let last_symbol_in_expression = get_last_symbol_in_expression()
         let last_number_in_expression = get_last_number_in_expression()
 
-        // Удаляет выражение и ставит символ, если в выражении только 0 и пользователь вводит число
-        if (current_expression.value == '0' && isNumber(entered_symbol)) {
+
+        // Удаляет выражение и ставит символ, если в выражении только 0 и пользователь вводит число или точку
+        if (current_expression.value == '0' && isNumber(entered_symbol) && entered_symbol != '.') {
             current_expression.value = entered_symbol
             last_symbol = entered_symbol
             return
@@ -117,7 +126,7 @@ console.log(eval('9*Math.sqrt(3+4)'))
         if (last_number_in_expression == '0' && entered_symbol == '0') return
 
 
-        // Очищаем выражение и ставим символ, если до этого поучили ошибку
+        // Очищаем выражение и ставим символ, если до этого получили ошибку
         if (got_error) {
             current_expression.value = ''
             got_error = false

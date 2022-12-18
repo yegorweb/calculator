@@ -4,7 +4,7 @@
             <Button @click="calculateStore.removeSymbol()" background="#FF9E58">←</Button>
             <Button @click="calculateStore.clear()" background="#FF9E58">C</Button>
             <Button @click="calculateStore.add_bracket()">( )</Button>
-            <Button>x<sup>2</sup></Button>
+            <Button @click="calculateStore.add_symbol('²')">x<sup>2</sup></Button>
         </div>
         <div class="section section-main">
             <Button @click="calculateStore.add_symbol('1')">1</Button>
@@ -52,7 +52,7 @@ function add_symbol(e: KeyboardEvent): void {
     e.key == '(' || e.key == ')' ? calculateStore.add_bracket() : null
     e.key == 'c' ? calculateStore.clear() : null    
     e.code == 'Backspace' ? calculateStore.removeSymbol() : null
-    e.code == 'Enter' ? calculateStore.calculate() : null
+    e.code == 'Enter' || e.code == 'NumpadEnter' ? calculateStore.calculate() : null
 }
 window.addEventListener('keyup', add_symbol)
 </script>
